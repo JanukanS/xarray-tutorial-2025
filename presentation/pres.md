@@ -15,24 +15,36 @@ paging: "%d / %d"
 ## Materials
 - will be on github [code/presentation]
 ---
-# What are arrays
-- A 1D array is an ordered collection of values (numbers in our case)
-- Can represent vectors
-## Values
-```
-[9, 4, 3, 5, 4]
-```
+# Arrays and Dimensions
+An array is an ordered grouping of values (often numeric)
+- "0D": Single value a.k.a. __scalar__
+- 1D: Line of Values a.k.a __vector__
+- 2D: Rectangle of Values a.k.a __matrix__
+- 3D: Rectangular Prism of Values 
+- 4D: Rectangular Prism Movie of Values 
+---
 
-## Position [Index]
-```
+# Shape of Array
+- An array's __shape__ is the length of each dimension
+- __shape__ _can_ be expressed as a 1D array
+- [2,4,3] could be the __shape__ of a 3D array
+---
+ 
+# Indices [Plural of Index]
+- Positions within the array are addressed by __indices__
+- __Indices__: ordered grouping of integers [1 per dim.]
+- __Indices__ _can_ be expressed as a 1D array
+## Example Array
+```python
+# Array Values
+[9, 4, 3, 5, 4]
+# Array Indices
 [0, 1, 2, 3, 4]
 ```
 ---
-# 2D Arrays
-- 2D arrays are ordered square of numbers
-- Can represent matrices
+# Indices: 2D Arrays
 ## Values
-```
+```python
 [[9, 8, 7],
  [6, 5, 4],
  [3, 2, 1]]
@@ -40,28 +52,44 @@ paging: "%d / %d"
 
 ---
 
-# 2D Arrays
+# Indices: 2D Arrays
 - The 2D arrays have 2 element __indices__
 
 ## Position [Index]
-```
+```python
 [[(0,0), (0,1), (0,2)],
  [(1,0), (1,1), (1,2)],
  [(2,0), (2,1), (2,2)]]
 ```
 ---
-
-# 3D Arrays
-- 3D arrays can be cubes of values 
-- 3 element __indices__ i.e. (x,y,z)
-- Can represent a tensor
-# 4D Arrays
-- 4D arrays would require 4 element coordinates 
-- Easiest to visualize as a 3D array changing in time
-- Can represent a tensor
+# Coordinates
+- Array Indices may map to a __coordinate__ (x,y,z,t)
+- Aligned: __coordinate__ element vary along only one dim.
+- Aligned __coordinates__ can be represented with a 1D array
+- Does not require a regular interval
+---
+# Coordinates Example
+## Example Array
+```python
+# Values
+[9, 4, 3, 5, 4]
+# Indices
+[0, 1, 2, 3, 4]
+# Coordinate
+[0.1, 0.2, 0.4, 0.5, 0.6]
+```
+---
+# Coordinates vs Indices
+- Arrays always have __indices__
+- __Indices__ are always integer values
+- __Coords__ may be integer values
+- Aligned coords have coordinate vectors
+## Graph on Grid Paper Analogy
+The grid lines represent indices and the xticks/yticks represent the coordinate vectors
 
 ---
 # Applications
+- Linear Algebra
 - Quantities at various points in space and time
 - Geospatial Data, Simulation Data
 - Neural Network Weights [2D] 
@@ -72,28 +100,27 @@ paging: "%d / %d"
 ---
 # Indexing Issues
 Common indexing issues with arrays
-- Mapping physical coordinates to indexes
+- Mapping coordinates to indexes and vice-versa
 - Order of coordinates: (x,y,z) vs. (x,z,y)
 ## Example
 I have a 2D array of temperatures [temp] and I want to find the values at Norquest
-```
-
+```python
 temp[25,46]
-
 ```
 ---
 # Indexing Issues
-```
+
+```python
 temp[25,46]
 ```
 ## 25 and 46 are indices
-- the data maps to physical coordinates
+- the indices maps to physical coordinates
 - numpy handles indices not coordinates
 - "manual" translation between coords. and indices
 
 ---
 # Indexing Issues
-```
+```python
 temp[25,46]
 ```
 ## Which one is which?
@@ -101,15 +128,17 @@ temp[25,46]
 - in numpy, you have to "keep track" of order
 - flipping indices will cause issues [wrong/invalid]
 ---
+
 # xarray
 Python library for managing arrays with 2 main features
 - __Labeling__: Combine arrays with coordinate vectors
-- __Ecosystem__: Integrates with other array libraries i.e scipy, matplotlib
-Reduce some of the "manual effort" with array programming
+- __Ecosystem__: Integrates with other array libraries
 
+Reduce some of the "manual effort" with array programming
+## Today's talk only covers a small part of xarray
 ---
 # Image Arrays
-Images can be represented as 3D arrays
+Images can be represented as 3D arrays. Here is one way to describe an image.	
 
 ## Dimensions
 - Length
@@ -127,3 +156,4 @@ Creating randomly generated images
 2. "Smooth" the noise
 3. Image manipulation [Math on arrays]
 ---
+# Questions?
